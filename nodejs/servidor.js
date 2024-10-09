@@ -1,18 +1,47 @@
 const http = require('http');
 const fs = require('fs');
+const _ = require('lodash');
 
 const server = http.createServer((req, res) => {
-console.log(req.url, req.method);
+//console.log(req.url, req.method);
 
-res.setHeader('Tipo-Conteudo', 'texto/html');
+//Testando o pacote Lodash
+const numero = _.random(0, 50);
+console.log(numero);
 
-fs.readFile('./views/index.html', (err, data) =>{
+//res.setHeader('Tipo-Conteudo', 'texto/html');
+
+let caminho = './views/';
+
+switch(req.url){
+    case '/':
+        caminho += 'index.html';
+        res.statusCode = 200;
+        break;
+
+    case '/sobre':
+        caminho += 'sobre.html';
+        res.statusCode = 200;
+        break;
+
+    case '/nossahistoria':
+        res.statusCode = 301;
+        res.setHeader('Location', '/sobre');
+        break;
+
+
+    default:
+        caminho += '404.html';
+        res.statusCode = 404;
+        break;
+}
+
+fs.readFile(caminho, (err, data) =>{
     if(err){
         console.log(err);
         res.end();
     } else {
-        res.write(data);
-        res.end();
+        res.end(data);
     }
 });
 
