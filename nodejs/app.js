@@ -17,7 +17,7 @@ const blogs = [
 ];
 
 //passando parâmetro head
-res.render('index', { titulo: 'Home' });
+res.render('index', { titulo: 'Home', blogs });
 });
 
 //nova rota
