@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+        nav{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #987;
+            text-transform: uppercase;
+        }
+        nav ul{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        nav li{
+            list-style-type: none;
+            margin-left: 20px;
+        }
+        nav h1{
+            font-size: 3em;
+        }
+        nav p, nav a{
+            color: #888;
+            font-weight: 300;
+        }
+        footer{
+            color: #888;
+            text-align: center;
+            margin: 80px auto 20px;
+        }
